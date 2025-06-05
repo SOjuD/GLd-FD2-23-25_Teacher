@@ -1,7 +1,21 @@
-import './styles/main.scss'
+import "./styles/main.scss";
+import "./search";
+import { getMoviesList } from "./api";
+import { renderCards } from "./mainContent";
+import { getObjParamsFromUrl, MOVIE_EVENT_NAME } from "./utils";
+import { renderTotal, updateActiveFilters } from "./filters/";
+import { updateSearchField } from "./search";
 
-import SVG from '@Public/assets/test.svg'
+const initApp = () => {
+  updateSearchField();
+  updateActiveFilters();
+  const params = getObjParamsFromUrl(window.location.search);
+  getMoviesList(params).then((data) => {
+    renderCards(data.data);
+    renderTotal(data.totalAmount);
+  });
+};
 
-console.log(SVG)
-
-console.log('sdfgjkll')
+document.addEventListener("DOMContentLoaded", initApp);
+window.addEventListener("popstate", initApp);
+window.addEventListener(MOVIE_EVENT_NAME, initApp);

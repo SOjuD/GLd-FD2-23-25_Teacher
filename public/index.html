@@ -1,9 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 </head>
 <body>
+<div class="app-container">
+  <header>
+    <div class="header__background">
+      <div class="header__overlay"></div>
+    </div>
 
+    <div class="header__wrapper">
+      <div class="header__top">
+        <div class="header__logo"><span>netflix</span>roulette</div>
+        <button class="btn btn-add" id="add-movie-btn">+ add movie</button>
+      </div>
+
+      <div class="header__main">
+        <h1 class="header__title">Find your movie</h1>
+
+        <form class="header__search-bar" id="search-form">
+          <input
+            name="search"
+            type="text"
+            class="search-input"
+            placeholder="What do you want to watch?"
+          />
+          <button type="submit" class="btn btn-red btn-search">
+            Search
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="movie-toolbar">
+      <nav class="movie-toolbar__filters">
+        <ul class="movie-toolbar__list">
+          <li class="movie-toolbar__item" data-filter="all">
+            <button>all</button>
+          </li>
+          <li class="movie-toolbar__item" data-filter="documentary">
+            <button>documentary</button>
+          </li>
+          <li class="movie-toolbar__item" data-filter="comedy">
+            <button>comedy</button>
+          </li>
+          <li class="movie-toolbar__item" data-filter="horror">
+            <button>horror</button>
+          </li>
+          <li class="movie-toolbar__item" data-filter="crime">
+            <button>crime</button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="movie-toolbar__sort">
+        <span class="movie-toolbar__label">sort by</span>
+        <select class="movie-toolbar__select">
+          <option value="">release date</option>
+        </select>
+      </div>
+    </div>
+
+    <section class="movie-gallery">
+      <div class="movie-gallery__count">
+        <span class="movie-gallery__amount"></span> movies found
+      </div>
+      <div class="movie-gallery__list" id="search-results-movies">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <button class="header__logo btn-roulette">
+      <span>netflix</span>roulette
+    </button>
+  </footer>
+
+  <dialog class="modal" id="add-movie-form-modal">
+    <div class="add-movie__form-container">
+      <button class="btn-close-modal" type="button"></button>
+      <h2>Add movie</h2>
+
+      <form
+        action=""
+        class="add-movie__form"
+        method="dialog"
+        id="add-movie-form"
+      >
+        <div class="add-movie__form-fields">
+          <div class="txt-inputs">
+            <label for="">title</label>
+            <input type="text" placeholder="Enter movie name" />
+            <label for="">Movie url</label>
+            <input type="text" placeholder="https://" />
+            <label for="">genre</label>
+            <div class="add-movie__genre-dropdown" id="genreDropdown">
+              <div class="genre-dropdown_toggle" id="dropdownToggle">
+                <span class="selected-values">Select Genre</span>
+                <button
+                  class="arrow-button"
+                  id="dropdownBtn"
+                  type="button"
+                ></button>
+              </div>
+              <div class="dropdown-options hidden" id="dropdownOptions">
+                <label><input type="checkbox" value="Crime" />Crime</label>
+                <label
+                ><input
+                  type="checkbox"
+                  value="Documentary"
+                />Documentary</label
+                >
+                <label><input type="checkbox" value="Horor" />Horror</label>
+                <label
+                ><input type="checkbox" value="Comedy" />Comedy</label
+                >
+              </div>
+            </div>
+            <div class="warning-message hidden">
+              <p>Select at least one genre to proceed</p>
+            </div>
+          </div>
+          <div class="num-inputs">
+            <label for="">Release date</label>
+            <input type="date" />
+            <label for="">Rating</label>
+            <input type="number" placeholder="7.8" />
+            <label for="">Runtime</label>
+            <input type="number" placeholder="minutes" />
+          </div>
+        </div>
+        <div class="add-movie__form-textrea">
+          <label for="">overview</label>
+          <textarea
+            name=""
+            id=""
+            placeholder="Movie description"
+          ></textarea>
+        </div>
+        <div class="add-movie__form-buttons">
+          <button class="btn btn-outline btn-reset" type="reset">
+            Reset
+          </button>
+          <button class="btn btn-red btn-submit" type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="success-modal">
+    <div class="success-window__modal">
+      <button class="btn-close-modal"></button>
+      <div class="success-icon"></div>
+      <h3 class="success-window__header">Congratulations!</h3>
+      <p class="success-window__message">
+        The movie has been added to dataase succesfully
+      </p>
+    </div>
+  </dialog>
+
+  <dialog class="modal">
+    <div class="delete-movie__modal" id="delete-movie-modal">
+      <button class="btn-close-modal"></button>
+      <h3>Delete movie</h3>
+      <p>Are you sure you want to delete this movie?</p>
+      <button class="btn">Confirm</button>
+    </div>
+  </dialog>
+</div>
+<template id="movie-template">
+  <div class="movie-card">
+    <div class="movie-card__poster">
+      <img src="" alt="">
+      <button class="btn-movie-menu"></button>
+    </div>
+    <div class="movie-card__details">
+      <h4 class="movie-card__title"></h4>
+      <span class="movie-card__year"></span>
+    </div>
+    <p class="movie-card__genre"></p>
+    <div class="movie-card__menu">
+      <button class="btn-close-modal"></button>
+      <ul>
+        <li>
+          <button class="movie-card__menu-edit">Edit</button>
+        </li>
+        <li>
+          <button class="movie-card__menu-delete">Delete</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
 </body>
 </html>
