@@ -58,8 +58,12 @@
 
       <div class="movie-toolbar__sort">
         <span class="movie-toolbar__label">sort by</span>
-        <select class="movie-toolbar__select">
-          <option value="">release date</option>
+        <select class="movie-toolbar__select" data-sort>
+          <option value="-">default</option>
+          <option value="release_date-asc">release date up</option>
+          <option value="release_date-desc">release date down</option>
+          <option value="title-asc">title up</option>
+          <option value="title-asc">title down</option>
         </select>
       </div>
     </div>
@@ -93,7 +97,7 @@
         <div class="add-movie__form-fields">
           <div class="txt-inputs">
             <label for="">title</label>
-            <input type="text" placeholder="Enter movie name" />
+            <input type="text" name="title" placeholder="Enter movie name" />
             <label for="">Movie url</label>
             <input type="text" placeholder="https://" />
             <label for="">genre</label>
@@ -126,17 +130,17 @@
           </div>
           <div class="num-inputs">
             <label for="">Release date</label>
-            <input type="date" />
+            <input type="date" name="release_date" />
             <label for="">Rating</label>
-            <input type="number" placeholder="7.8" />
+            <input type="number" placeholder="7.8" name="vote_average" />
             <label for="">Runtime</label>
-            <input type="number" placeholder="minutes" />
+            <input type="number" placeholder="minutes" name="runtime" />
           </div>
         </div>
         <div class="add-movie__form-textrea">
           <label for="">overview</label>
           <textarea
-            name=""
+            name="overview"
             id=""
             placeholder="Movie description"
           ></textarea>

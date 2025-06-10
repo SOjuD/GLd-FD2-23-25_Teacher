@@ -1,14 +1,14 @@
 import "./styles/main.scss";
-import "./search";
 import { getMoviesList } from "./api";
 import { renderCards } from "./mainContent";
 import { getObjParamsFromUrl, MOVIE_EVENT_NAME } from "./utils";
-import { renderTotal, updateActiveFilters } from "./filters/";
+import { renderTotal, updateActiveFilters, updateActiveSort } from "./filters/";
 import { updateSearchField } from "./search";
 
 const initApp = () => {
   updateSearchField();
   updateActiveFilters();
+  updateActiveSort();
   const params = getObjParamsFromUrl(window.location.search);
   getMoviesList(params).then((data) => {
     renderCards(data.data);

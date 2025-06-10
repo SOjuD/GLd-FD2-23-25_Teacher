@@ -14,3 +14,9 @@ export const getMoviesList = async (params, id, method = "GET") => {
     if (data.ok === true) return data.json();
   });
 };
+
+export const getMovieDetails = async (id) => {
+  return await fetch(`${API_BASE_URL}/${id}`).then((data) => {
+    if (data.ok === true) return data.json();
+  });
+};

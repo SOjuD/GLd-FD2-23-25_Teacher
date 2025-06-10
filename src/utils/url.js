@@ -22,7 +22,7 @@ export const getObjSearchParamsFromCurrentUrl = () =>
 export const updateSearchParams = (newParams = {}) => {
   const url = new URL(window.location.origin);
   Object.entries({
-    ...getObjSearchParamsFromCurrentUrl(window.location.search),
+    ...getObjSearchParamsFromCurrentUrl(),
     ...newParams,
   }).forEach(([key, value]) => {
     url.searchParams.append(key, value);

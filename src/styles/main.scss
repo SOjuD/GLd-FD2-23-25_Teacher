@@ -737,3 +737,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 20px;
   opacity: 0.5;
 }
+
+.visible-modal {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
