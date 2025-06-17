@@ -20,3 +20,16 @@ export const getMovieDetails = async (id) => {
     if (data.ok === true) return data.json();
   });
 };
+
+export const updateMovie = async (data) => {
+  return await fetch(API_BASE_URL, {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  }).then((data) => {
+    if (data.ok === true) return data.json();
+  });
+};

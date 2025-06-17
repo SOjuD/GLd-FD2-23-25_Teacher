@@ -36,17 +36,36 @@ const handleCardsClick = (e) => {
   const editId = e.target.closest("[data-edit]")?.dataset.edit;
   const isCloseContextMenuButtonClicked = e.target.closest(".btn-close-modal");
   const cardElement = e.target.closest(".movie-card");
+  const menuElement = cardElement.querySelector(".movie-card__menu");
+
+  const documentClickHandler = (e) => {
+    const isMenuClick = !!e.target.closest(".movie-card__menu");
+
+    if (!isMenuClick) menuElement.classList.remove("visible");
+  };
+
+  const addDocumentClickListener = () => {
+    setTimeout(
+      () =>
+        document.addEventListener("click", documentClickHandler, {
+          once: true,
+        }),
+      0,
+    );
+  };
 
   if (editId) {
     getMovieDetails(editId).then((data) => {
       showAddMovieModal(data);
     });
+    addDocumentClickListener();
   }
 
   if (isContextMenuButtonClicked) {
-    cardElement.querySelector(".movie-card__menu").classList.add("visible");
+    menuElement.classList.add("visible");
+    addDocumentClickListener();
   } else if (isCloseContextMenuButtonClicked) {
-    cardElement.querySelector(".movie-card__menu").classList.remove("visible");
+    menuElement.classList.remove("visible");
   }
 };
 

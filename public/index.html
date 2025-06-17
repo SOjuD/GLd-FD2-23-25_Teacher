@@ -99,7 +99,7 @@
             <label for="">title</label>
             <input type="text" name="title" placeholder="Enter movie name" />
             <label for="">Movie url</label>
-            <input type="text" placeholder="https://" />
+            <input type="text" placeholder="https://" name="poster_path" />
             <label for="">genre</label>
             <div class="add-movie__genre-dropdown" id="genreDropdown">
               <div class="genre-dropdown_toggle" id="dropdownToggle">
@@ -113,15 +113,17 @@
               <div class="dropdown-options hidden" id="dropdownOptions">
                 <label><input type="checkbox" value="Crime" />Crime</label>
                 <label
-                ><input
-                  type="checkbox"
-                  value="Documentary"
+                ><input name="genres"
+                        type="checkbox"
+                        value="Documentary"
                 />Documentary</label
                 >
-                <label><input type="checkbox" value="Horor" />Horror</label>
+                <label><input name="genres" type="checkbox" value="Horor" />Horror</label>
                 <label
-                ><input type="checkbox" value="Comedy" />Comedy</label
-                >
+                ><input name="genres" type="checkbox" value="Comedy" />Comedy</label
+                ><label
+              ><input name="genres" type="checkbox" value="Drama" />Drama</label
+              >
               </div>
             </div>
             <div class="warning-message hidden">
@@ -132,7 +134,7 @@
             <label for="">Release date</label>
             <input type="date" name="release_date" />
             <label for="">Rating</label>
-            <input type="number" placeholder="7.8" name="vote_average" />
+            <input type="number" placeholder="7.8" name="vote_average" step="0.1" />
             <label for="">Runtime</label>
             <input type="number" placeholder="minutes" name="runtime" />
           </div>
