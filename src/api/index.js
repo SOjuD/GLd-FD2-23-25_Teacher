@@ -21,15 +21,19 @@ export const getMovieDetails = async (id) => {
   });
 };
 
-export const updateMovie = async (data) => {
+export const updateMovie = async (data, method = "PUT") => {
   return await fetch(API_BASE_URL, {
-    method: "PUT",
+    method,
     body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-  }).then((data) => {
-    if (data.ok === true) return data.json();
+  }).then(async (data) => {
+    if (data.ok === true) return await data.json();
+    const res = await data.json();
+    throw new Error(res.messages[0]);
   });
 };
+
+export const createMovie = (data) => updateMovie(data, "POST");

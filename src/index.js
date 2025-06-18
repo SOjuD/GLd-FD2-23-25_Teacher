@@ -4,6 +4,7 @@ import { renderCards } from "./mainContent";
 import { getObjParamsFromUrl, MOVIE_EVENT_NAME } from "./utils";
 import { renderTotal, updateActiveFilters, updateActiveSort } from "./filters/";
 import { updateSearchField } from "./search";
+import "./addMovie";
 
 const initApp = () => {
   updateSearchField();

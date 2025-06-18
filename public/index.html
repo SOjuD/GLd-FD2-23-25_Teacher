@@ -97,9 +97,9 @@
         <div class="add-movie__form-fields">
           <div class="txt-inputs">
             <label for="">title</label>
-            <input type="text" name="title" placeholder="Enter movie name" />
+            <input type="text" name="title" required placeholder="Enter movie name" />
             <label for="">Movie url</label>
-            <input type="text" placeholder="https://" name="poster_path" />
+            <input type="text" placeholder="https://" required name="poster_path" />
             <label for="">genre</label>
             <div class="add-movie__genre-dropdown" id="genreDropdown">
               <div class="genre-dropdown_toggle" id="dropdownToggle">
@@ -132,7 +132,7 @@
           </div>
           <div class="num-inputs">
             <label for="">Release date</label>
-            <input type="date" name="release_date" />
+            <input type="date" name="release_date" required />
             <label for="">Rating</label>
             <input type="number" placeholder="7.8" name="vote_average" step="0.1" />
             <label for="">Runtime</label>
@@ -144,7 +144,7 @@
           <textarea
             name="overview"
             id=""
-            placeholder="Movie description"
+            placeholder="Movie description" required
           ></textarea>
         </div>
         <div class="add-movie__form-buttons">
