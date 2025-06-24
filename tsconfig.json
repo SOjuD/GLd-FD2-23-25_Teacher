@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": false,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "incremental": true,
+    "outDir": "dist",
+    "rootDir": "./src",
+    "baseUrl": "./",
+    "paths": {
+      "@Public/*": [
+        "../public/*"
+      ]
+    }
+  },
+  "include": [
+    "./src/**/*",
+    "./types/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
